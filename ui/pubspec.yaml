@@ -29,11 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   http: ^1.6.0
-<<<<<<< HEAD
   flutter_secure_storage: ^10.0.0
   qr_flutter: ^4.1.0
-=======
->>>>>>> 3cbb2a08d78e6be4837e3b9b608bdd3d5ab67b39
   flutter:
     sdk: flutter
 
