@@ -13,8 +13,19 @@ class LogInPage extends StatefulWidget{
 
 class _LogInState extends State<LogInPage>{
 
+    final _studentId = TextEditingController();
+
+    @override
+    void dispose() {
+        _studentId.dispose();
+        super.dispose();
+    }
+
     void _onLogInPressed() {
-        http.Request request = http.Request('POST', Uri.parse(url));
+        http.Request request = http.Request('POST', Uri.parse(url))
+            ..headers['Content-Type'] = 'application/json'
+            ..body = '{"id": "${_studentId.text}"}';
+        //print(request);
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => ScorePage()),
@@ -46,12 +57,13 @@ class _LogInState extends State<LogInPage>{
                                 fontFamily: 'Roboto',
                             ),
                         ),
-                        const FractionallySizedBox(
+                        FractionallySizedBox(
                             widthFactor: 0.8,
                             child: TextField(
+                                controller: _studentId,
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(),
-                                    labelText: 'Email or Student ID',
+                                    labelText: 'Student ID',
                                 ),
                             ),
                         ),
