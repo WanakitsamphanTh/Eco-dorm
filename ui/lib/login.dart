@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'score.dart';
-
-const url = "";
+import 'app_page.dart';
+import 'api_client.dart';
 
 class LogInPage extends StatefulWidget{
-    const LogInPage({super.key});
-
+    const LogInPage({super.key, required this.apiClient});
+    final ApiClient apiClient;
     @override
     State<LogInPage> createState() => _LogInState();
 }
 
 class _LogInState extends State<LogInPage>{
 
+    late ApiClient apiClient;
     final _studentId = TextEditingController();
+
+    @override
+    void initState() {
+        super.initState();
+        apiClient = widget.apiClient;
+    }
 
     @override
     void dispose() {
@@ -22,21 +28,24 @@ class _LogInState extends State<LogInPage>{
     }
 
     void _onLogInPressed() {
-        http.Request request = http.Request('POST', Uri.parse(url+"/login"))
-            ..headers['Content-Type'] = 'application/json'
-            ..body = '{"student_id": "${_studentId.text}"}';
+        final studentId = _studentId.text.trim();
 
-        var success = false;
-        if(success){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => ScorePage()),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login failed. Please try again.')),
-          );
-        }
+        /*apiClient.login(studentId).then((success) {
+          if(success){
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => AppPage(apiClient: apiClient)),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Login failed. Please try again.')),
+            );
+          }
+        });*/
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => AppPage(apiClient: apiClient)),
+        );
     }
 
     @override
