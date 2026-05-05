@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
     <application
         android:label="ui"
         android:name="${applicationName}"
