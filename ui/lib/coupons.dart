@@ -76,9 +76,9 @@ class _CouponsPageState extends State<CouponsPage>{
     List<Widget> getCoupons() {
         // var coupons = widget.apiClient.getCoupons();
         var coupons = [
-            {"name": "10% Off Eco-Friendly Products", "expiry": "2024-12-31"},
-            {"name": "Free Shipping on Orders Over \$50", "expiry": "2024-11-30"},
-            {"name": "\$5 Off Your Next Purchase", "expiry": "2024-10-15"},
+            {"name": "Free Drink at COOP", "expiry": "2024-12-31"},
+            {"name": "100 Yen Gift Card", "expiry": "2024-11-30"},
+            {"name": "Free Lunch at Hungry Hungry", "expiry": "2024-10-15"},
         ];
 
         return coupons.map((e) => createCoupons(e["name"]!, e["expiry"]!)).toList();
