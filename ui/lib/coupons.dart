@@ -11,8 +11,30 @@ class CouponsPage extends StatefulWidget{
 
 class _CouponsPageState extends State<CouponsPage>{
 
-    Widget createCoupons(String name, String expiry) {
-        return Container(
+    void _useCoupon(String name) {
+        return;
+    }
+
+    Widget createCoupons(String name, String expiry){
+        return GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(name),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        _useCoupon(name);
+                      },
+                      child: const Text("Use this coupon"),
+                    ),
+                  ],
+                ),
+              );
+            },
+            child: Container(
             width: double.infinity,
             margin: const EdgeInsets.symmetric(vertical: 10),
             padding: const EdgeInsets.all(20),
@@ -47,16 +69,16 @@ class _CouponsPageState extends State<CouponsPage>{
                     ),
                 ],
             ),
+        )
         );
-      
     }
 
     List<Widget> getCoupons() {
         // var coupons = widget.apiClient.getCoupons();
         var coupons = [
-            {"name": "10% Off Eco-Friendly Products", "expiry": "2024-12-31", "code": "ECO10"},
-            {"name": "Free Shipping on Orders Over \$50", "expiry": "2024-11-30", "code": "FREESHIP"},
-            {"name": "\$5 Off Your Next Purchase", "expiry": "2024-10-15", "code": "SAVE5"},
+            {"name": "10% Off Eco-Friendly Products", "expiry": "2024-12-31"},
+            {"name": "Free Shipping on Orders Over \$50", "expiry": "2024-11-30"},
+            {"name": "\$5 Off Your Next Purchase", "expiry": "2024-10-15"},
         ];
 
         return coupons.map((e) => createCoupons(e["name"]!, e["expiry"]!)).toList();

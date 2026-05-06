@@ -11,15 +11,15 @@ class ScorePage extends StatefulWidget {
 }
 
 class _ScorePageState extends State<ScorePage> {
-  String _name = "Himar";
-  String _score = "0";
+  String _name = "Alice";
+  String _score = "100";
   String _rank = "1";
 
   void _fetchScore() {
     setState(() {
       _name = "New";
       _score = "100";
-      _rank = "10";
+      _rank = "3";
     });
   }
 
@@ -87,17 +87,18 @@ class _ScorePageState extends State<ScorePage> {
 
     return Column(
       children: ranks.map((e) {
-        var color = (e[0] == "1") ? Colors.amber : (e[0] == "2") ? Colors.grey : Colors.orange.shade700;
+        final color = (e[0] == "1") ? Colors.amber : (e[0] == "2") ? Colors.grey : Colors.orange.shade700;
+        final isMe = (e[0] == _rank);
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 6),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isMe ? color.withValues(alpha: 0.2) : Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: null,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: Colors.black.withValues(alpha: 0.05),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               )
@@ -106,7 +107,7 @@ class _ScorePageState extends State<ScorePage> {
           child: Row(
             children: [
               CircleAvatar(
-                backgroundColor:color,
+                backgroundColor: color,
                 child: Text(
                   e[0],
                   style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
@@ -115,7 +116,7 @@ class _ScorePageState extends State<ScorePage> {
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
-                  e[1],
+                  e[1] + (isMe ? " (You)" : ""),
                   style: const TextStyle(fontSize: 16),
                 ),
               ),
@@ -159,7 +160,7 @@ class _ScorePageState extends State<ScorePage> {
             ),
             const SizedBox(height: 10),
             const Text(
-              "Top Students",
+              "Top 3 Earth Lovers",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -172,8 +173,8 @@ class _ScorePageState extends State<ScorePage> {
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: _fetchScore,
-                icon: const Icon(Icons.refresh),
-                label: const Text("Refresh Score"),
+                icon: const Icon(Icons.refresh, color: Colors.white),
+                label: const Text("Refresh Score", style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   backgroundColor: Colors.green,
