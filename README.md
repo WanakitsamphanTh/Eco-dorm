@@ -11,7 +11,7 @@ A student's can gain points by
 * disposing cans and bottles in the recycle bin and scan QR code to register
 * saving electricity and get extra points if their room uses the least power each week
 
-The points can be removed if
+The points will be reduced if
 * They use air conditioner longer than 8 hours within 24 hours
 * They forget to turn off the lights in their bedroom during class time
 Admins can impose other rules.
