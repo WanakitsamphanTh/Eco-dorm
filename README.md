@@ -10,6 +10,7 @@ A student's can gain points by
 * participating in volunteer activities
 * disposing cans and bottles in the recycle bin and scan QR code to register
 * saving electricity and get extra points if their room uses the least power each week
+
 The points can be removed if
 * They use air conditioner longer than 8 hours within 24 hours
 * They forget to turn off the lights in their bedroom during class time
@@ -33,7 +34,7 @@ The server is RESTful API-based. At the current steps, we have implemented the f
 `/students` for retrieving user data \
 `/scores` for setting and retrieving user scores \
 `/recycle` for updating and retrieving recycle bin usage history as well as updating scores \
-`/coupons` for retrieving coupons and update status \
+`/coupons` for retrieving coupons and update status
 
 ## Contributors
 * [M](https://github.com/WanakitsamphanTh) (Mock app coding and API design)
