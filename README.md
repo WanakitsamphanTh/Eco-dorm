@@ -38,7 +38,7 @@ The server is RESTful API-based. At the current steps, we have implemented the f
 `/coupons` for retrieving coupons and update status
 
 ## Contributors
-* [M](https://github.com/WanakitsamphanTh) (Mock app coding and API design)
+* [Thanapat](https://github.com/WanakitsamphanTh) (Mock app coding and API design)
 * [Credit](https://github.com/credit7033) (Backend coding and testing)
 * [Kenza](https://github.com/KenzaB3108) (Product design and presentation)
 * [Raizou](https://github.com/s2402315-hash) (Product design and coding)
