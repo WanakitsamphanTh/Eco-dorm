@@ -30,7 +30,8 @@ System admin publishes the reward coupons each week or month. The coupons reward
 The QR code can be used for identification in various scenarios. For example, user can get their code scanned at the recycle bin when they dispose the garbage, then the bin sends data to the server to gain points.
 
 ### Server
-The server is RESTful API-based. At the current steps, we have implemented the following services. \ 
+The server is RESTful API-based. At the current steps, we have implemented the following services.
+
 `/students` for retrieving user data \
 `/scores` for setting and retrieving user scores \
 `/recycle` for updating and retrieving recycle bin usage history as well as updating scores \
