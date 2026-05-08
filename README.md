@@ -31,9 +31,9 @@ The QR code can be used for identification in various scenarios. For example, us
 ### Server
 The server is RESTful API-based. At the current steps, we have implemented the following services. \ 
 `/students` for retrieving user data \
-`/scores` for setting and retrieving user scores
-`/recycle` for updating and retrieving recycle bin usage history as well as updating scores
-`/coupons` for retrieving coupons and update status
+`/scores` for setting and retrieving user scores \
+`/recycle` for updating and retrieving recycle bin usage history as well as updating scores \
+`/coupons` for retrieving coupons and update status \
 
 ## Contributors
 * [M](https://github.com/WanakitsamphanTh) (Mock app coding and API design)
